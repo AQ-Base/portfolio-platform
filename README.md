@@ -14,6 +14,11 @@ A monorepo for my personal portfolio website and dev blog
 - `content/blog` - blog posts (MD/MDX)
 - `docs` - technical notes and architecture (planned)
 
+## Tech Stack (Initial)
+- Next.js (App Router, TypeScript)
+- Tailwind CSS
+- Git & Github
+
 ## Development
 ```bash
 cd apps/web
