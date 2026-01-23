@@ -27,8 +27,8 @@ npm run dev
 Roadmap isn't final and is subject to change!
 
 # Current Roadmap
-## Phase 1 - Foundations - Almost complete :white_check_mark:
-**Goal: Create a stable base you can build on.**
+## Phase 1 - Foundations - Complete :white_check_mark:
+**Goal: Create a stable base I can build off.**
 
 - Repo structure
 - Next.js app running
@@ -67,7 +67,7 @@ Roadmap isn't final and is subject to change!
 - Plublishing automation (maybe fast-api)
 
 ## Phase 6 - Hardware Integration & Experiments
-**Goal: Tie software + hardware together
+**Goal: Tie software + hardware together**
 
 - Printer camera feed
 - Monitoring UI
