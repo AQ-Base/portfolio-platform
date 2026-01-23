@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { projects } from "../../content/projects";
+import { projects } from "@/content/projects";
 
 export default function ProjectsPage() {
   return (

@@ -34,3 +34,4 @@ export const projects: Project[] = [
     status: "planned",
   },
 ];
+

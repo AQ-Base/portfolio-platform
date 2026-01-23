@@ -3,16 +3,18 @@ import { projects } from "../../../content/projects";
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
     
+    // promise to wait for params to resolve
     const { slug } = await params;
-    // Debug: this logs in your terminal, not the browser
-    // console.log("slug:", slug);
     
+    // find project by slug (from params)
     const project = projects.find((p) => p.slug === slug);
 
     if (!project) {
+        // if project not found, return 404
         notFound();
     }
 
+        // render project details
     return (
         <main>
             <h1 className="text-2xl font-bold">{project.title}</h1>
