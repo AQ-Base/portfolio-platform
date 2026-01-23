@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { projects } from "../../../content/projects";
 
-export default async function ProjectPage({ params }: { params: { slug: string } }) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
     
     // promise to wait for params to resolve
     const { slug } = await params;
