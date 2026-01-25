@@ -40,8 +40,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <main>
       <h1 className="text-2xl font-bold">{frontmatter.title}</h1>
       <p className="mt-2 text-sm opacity-80">{frontmatter.date}</p>
+      <br />
 
-      <article className="prose dark:prose-invert max-w-none mt-6">{content}</article>
+      <article className="prose dark:prose-invert max-w-none">
+        {content}
+      </article>
     </main>
   );
 }
