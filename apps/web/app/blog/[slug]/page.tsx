@@ -2,6 +2,10 @@ import { notFound } from "next/navigation";
 import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllPostMeta, getPostSourceBySlug } from "../../../lib/blog";
+import { MdxImage } from "@/components/MdxImage";
+import { Figure } from "@/components/Figure";
+import { ImageGrid } from "@/components/ImageGrid";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export async function generateStaticParams() {
   const posts = await getAllPostMeta();
@@ -32,7 +36,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkGfm],
+        rehypePlugins: [[rehypePrettyCode,{theme: "github-dark"}],]
       },
+    },
+    // this is for our image MDX to next image rendering <img> and <Figure> for use
+    components: {
+      img: (props) => <MdxImage {...props}/>,
+      Figure,
+      ImageGrid,
     },
   });
 

@@ -1,0 +1,91 @@
+---
+title: "Say Cheese!: Portfolio Platform"
+date: "2026-01-25" 
+tags: ["portfolio-platform", "images"]
+project: "portfolio-platform"
+---
+
+## Smile and Don't Blink!
+
+Say hello to photos and images everybody. A small step towards a larger goal, simple integration of images into the site marks another achievement we set out to complete on our
+roadmap. To celebrate I will include a photo of what this page currently looks like! (Be warned this may age poorly).
+
+<Figure
+    src="/images/blog/blogpage3.png"
+    alt="Photo of Say Cheese! blog page"
+    width="800"
+    height="500"
+    caption="Photo of Say Cheese! blog page"
+    creditText="Me"
+/>
+
+
+Using the Image component from Next/Image we were able to create our own special components for our own MDX compiler to read. This becomes valuable when we have to put
+more images into our blogs as it is now all a standardised format, and saves us from having to mess with 'divs' ourselves. So thanks to our MDX compiler we can slim the
+image reference down to this.
+
+```MDX title="On MDX Page"
+<Figure
+    src="/images/blog/blogpage3.png"
+    alt="Photo of Say Cheese! blog page"
+    width="800"
+    height="500"
+    caption="Photo of Say Cheese! blog page"
+    creditText="Me"
+/>
+```
+This \<Figure/> tag is then converted by our MDX compiler into something that looks like this:
+
+```TSX title="On Web Page"
+<figure className="my-6">
+    <Image
+        src="/images/blog/blogpage3.png"
+        alt="Photo of Say Cheese! blog page"
+        width="800"
+        height="500"
+        style="height:auto"
+    />
+    <figcaption className="mt-2 text-sm opacity-80">
+        <span>"Photo of Say Cheese! blog page" · Some Hyper link</span>
+    </figcaption>
+</figure>
+```
+
+This is very powerful as we can reuse this multiple times and even maybe change how we want to display photos without having to go back and edit old blog posts,
+very useful. Along side this, using the figure component we made we can attatch a caption and link the credit of the photo. This makes it useful for referencing photos
+taken by other people.
+
+<ImageGrid
+  caption="But can we do lots of photos together?"
+  images={[
+    {
+      src: "https://i.pinimg.com/736x/c8/09/0d/c8090dc7ef8532910c2a50e516b43f06.jpg",
+      alt: "Bunny with floppy ears",
+      width: 200,
+      height: 300,
+      creditText: "Pinterest",
+      creditUrl: "https://uk.pinterest.com/pin/610941505739255918/"
+    },
+    {
+      src: "https://i.pinimg.com/736x/62/60/fb/6260fbe6771e558a32feb6db79064c89.jpg",
+      alt: "Bunny with glasses",
+      width: 200,
+      height: 300,
+      creditText: "Pinterest",
+      creditUrl: "https://uk.pinterest.com/pin/234187249346981810/"
+    },
+    {
+      src: "https://i.pinimg.com/736x/f4/f6/b6/f4f6b62203eabadd4ddcd59f38621108.jpg",
+      alt: "Bunny with sunglasses",
+      width: 200,
+      height: 300,
+      creditText: "Pinterest",
+      creditUrl: "https://uk.pinterest.com/pin/3659243441526465/"
+    },
+  ]}
+/>
+
+Another feature I also implemented was the ability to place photos side by side. This feature is also responsive for anyone reading on a desktop will see the three
+bunnies in a row and anything smaller might be 2 bunnies in a row with one below, and finally if you were to read this on your phone you would get 3 bunnies straight up
+and down.
+
