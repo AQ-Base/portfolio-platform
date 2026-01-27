@@ -6,6 +6,7 @@ import { MdxImage } from "@/components/MdxImage";
 import { Figure } from "@/components/Figure";
 import { ImageGrid } from "@/components/ImageGrid";
 import rehypePrettyCode from "rehype-pretty-code";
+import { BlogImage } from "@/components/BlogImage";
 
 export async function generateStaticParams() {
   const posts = await getAllPostMeta();
@@ -41,9 +42,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
     // this is for our image MDX to next image rendering <img> and <Figure> for use
     components: {
-      img: (props) => <MdxImage {...props}/>,
-      Figure,
+      img: (props) => <BlogImage {...props}/>,
+      BlogImage,
       ImageGrid,
+      Figure,
     },
   });
 

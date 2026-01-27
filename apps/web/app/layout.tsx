@@ -23,13 +23,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <header className="border-b">
-          <nav className="max-w-4xl mx-auto p-4 flex gap-4">
+          <nav className="max-w-6xl mx-auto p-4 flex gap-4">
             <Link href="/">Home</Link>
             <Link href="/projects">Projects</Link>
             <Link href="/blog">Blog</Link>
           </nav>
         </header>
-        <div className="max-w-4xl mx-auto p-6">{children}</div>
+        <div className="max-w-6xl mx-auto p-6">{children}</div>
       </body>
     </html>
   );

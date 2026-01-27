@@ -1,0 +1,87 @@
+---
+title: "Portfolio Platform: Now With Better Pictures"
+date: "2026-01-27" 
+tags: ["portfolio-platform", "images", "code"]
+project: "portfolio-platform"
+---
+
+
+A small blog post today on the new implementation of the image components!. Before we had a basic implementation of Figure and ImageGrid. These were all helpful
+components I could use im my blog .mdx files to make referenecing images easier. Previously before I had created an MdxImage component to modify the basic \<img> that
+comes with the MDX compiler. So instead of using their image it was changed to use my MdxImage component which uses Next/Image. This made it easy for attatching images
+to blogs as seen below:
+
+```tsx title="On MDX Page"
+<img
+  src="/images/blog/foo.jpg"
+  alt="Normal inline image"
+  width="400"
+  height="300"
+/>
+```
+
+```tsx title="Once Compiled"
+<Image
+    src="/images/blog/foo.jpg"
+    alt="Normal inline image"
+    width="400"
+    height="300"
+    style={{ height: "auto" }}
+/>
+```
+
+I was able to achieve this as the library I used, compileMDX allows us to change certain HTML components like \<img> and override it ourselves. I achieved this by 
+registering my mdx component with the MDX compiler, shown here:
+
+```tsx title="Using compileMDX"
+components: {
+    img: (props) => <MdxImage {...props}/>,
+    ...
+},
+```
+
+This worked out very well as the normal \<img> HTML tag is slow and static by nature and the Next/Image component is responsive and optimised. However, in practise I 
+did desire a finer grain control of the way the image is displayed, using the methed outlined above every image is a set size and always displayed inline. When I upgraded
+to use Figure and ImageGrid, two more types of image components I implemented that I talked about in the last blog. Both of these also had the problem of control. So that
+is when I decided to move to a more adaptable component that I called BlogImage. Using BlogImage I would be able to have more control over how the images are displayed 
+along side having caption and credit like before.
+
+<BlogImage
+    src="/images/blog/foo.jpg"
+    alt="Normal inline image"
+    width="400"
+    height="300"
+    mode="left"
+    caption="left image"
+/>
+
+<BlogImage
+    src="/images/blog/foo.jpg"
+    alt="Normal inline image"
+    width="400"
+    height="300"
+    mode="right"
+    caption="right image"
+/>
+
+<BlogImage
+    src="/images/blog/foo.jpg"
+    alt="Normal inline image"
+    width="400"
+    height="300"
+    mode="centre"
+    caption="centre image"
+/>
+
+<BlogImage
+    src="/images/blog/test.png"
+    alt="Normal inline image"
+    width="400"
+    height="300"
+    mode="wide"
+    caption="wide image"
+/>
+
+
+
+

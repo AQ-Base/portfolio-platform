@@ -26,11 +26,12 @@ export function Figure({
         alt={alt}
         width={width}
         height={height}
-        style={{ height: "auto" }}
+        sizes="(max-width: 768px) 100vw, 700px"
+        style={{height: "auto" }}
       />
 
       {(caption || creditText) && (
-        <figcaption className="mt-2 text-sm opacity-80">
+        <figcaption className="mt-2 text-sm opacity-80r">
           {caption ? <span>{caption}</span> : null}
           {caption && creditText ? <span> · </span> : null}
           {creditText ? (

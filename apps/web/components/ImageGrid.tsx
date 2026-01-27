@@ -17,7 +17,8 @@ type Props = {
 
 export function ImageGrid({ images, caption, maxColumns = 3, }: Props) {
 
-    const desktopCols = Math.min(images.length, maxColumns);
+    // desktop columns is either 1 or 2,3,4 - never 0
+    const desktopCols = Math.min(Math.max(images.length, 1), maxColumns);
 
     const gridColsClass = {
         1: "lg:grid-cols-1",
@@ -39,7 +40,7 @@ export function ImageGrid({ images, caption, maxColumns = 3, }: Props) {
               alt={img.alt}
               width={img.width}
               height={img.height}
-              style={{ height: "auto" }}
+              style={{height: "auto" }}
             />
             {(img.creditText || img.creditUrl) && (
               <p className="mt-1 text-xs opacity-70">
