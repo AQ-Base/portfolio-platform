@@ -33,7 +33,7 @@ export function BlogImage({
                 className={clsx("my-8", {
                     // conditional statements for all modes
                     "mx-auto max-w-sm": mode === "centre",
-                    "mr-auto": mode === "left",
+                    "mr-auto float-left": mode === "left",
                     "ml-auto float-right": mode === "right",
                     "px-6": mode === "wide",
                 })}
